@@ -133,7 +133,7 @@ COLLECTFAST_ENABLED = False
 # Configuração AWS
 AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
 # Retirando o '==1' você libera o acesso para receber o collect static da aws
-if AWS_ACCESS_KEY_ID == 1 :
+if AWS_ACCESS_KEY_ID == 1:
     AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
     AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
     AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400', }
