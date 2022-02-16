@@ -1,0 +1,43 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      PIPENV_NO_INHERIT: 1
+      PIPENV_IGNORE_VIRTUALENVS: 1
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:11.5
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: postgres
+        ports: ['5432:5432']
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.9
+          architecture: x64
+      - name: Copiando configurações
+        run: |
+          cp contrib/env-sample .env
+      - name: Instalando dependências
+        run: |
+          pip install pipenv codecov
+          pipenv sync --dev
+      - name: Rodar flake8
+        run: |
+          pipenv run flake8 .
+      - name: Rodar Pytest
+        run: |
+          pipenv run pytest --cov=atWebsite
+      - name: Relatório
+        run: |
+          pipenv run codecov
