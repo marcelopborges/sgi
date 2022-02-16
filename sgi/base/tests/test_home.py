@@ -1,2 +1,2 @@
 def test_erro():
-    assert True == True
+    assert 1 == 1
