@@ -1,10 +1,129 @@
-<!DOCTYPE html>
-<html lang="en">
+{% load static %}
+<!doctype html>
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>hello world!</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--- Material icon CDN --->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp">
+    <!---// Material icon CDN --->
+    <!--- CSS --->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <!---// CSS --->
+
+    <title>SGI - HP</title>
 </head>
 <body>
-<h1> Hello world </h1>
+<div class="container">
+    <!---ASIDE--->
+    <aside>
+        <div class="top">
+            <div class="logo">
+                <img src="{% static  'assets/images/background/logo.svg'%}">
+            </div>
+            <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">close</span>
+            </div>
+        </div>
+        <div class="sidebar">
+            <a href="#" class="active">
+                <span class="material-icons-sharp">grid_view</span>
+                <h3>Dashboard</h3>
+            </a>
+                        <a href="#">
+                <span class="material-icons-sharp">insights</span>
+                <h3>Análises</h3>
+            </a>
+                        <a href="#">
+                <span class="material-icons-sharp">calendar_month</span>
+                <h3>Calendário</h3>
+            </a>
+                        <a href="#">
+                <span class="material-icons-sharp">report_gmailerrorred</span>
+                <h3>Reports</h3>
+            </a>
+                        <a href="#">
+                <span class="material-icons-sharp">mail_outline</span>
+                <h3>Mensagens</h3>
+                <span class="message-count"> 10 </span>
+            </a>
+            <a href="#">
+                <span class="material-icons-sharp">logout</span>
+                <h3>Logout</h3>
+            </a>
+        </div>
+    </aside>
+    <!---//ASIDE--->
+    <main>
+        <h1>Dashboard</h1>
+        <div class="date">
+            <input type="date">
+        </div>
+        <div class="insights">
+            <!---//DEMANDA---->
+            <div class="demanda">
+                <span class="material-icons-sharp">groups</span>
+                <div class="middle">
+                    <div class="left">
+                        <h3>Demanda total</h3>
+                        <h1>130000</h1>
+                    </div>
+                    <div class="progress">
+                        <svg>
+                            <circle cx="38" cy="38" r="36"></circle>
+                        </svg>
+                        <div class="number">
+                            <p>81%</p>
+                        </div>
+                    </div>
+                </div>
+                <small class="text-muted">Demanda D-1</small>
+            </div>
+            <!---//DEMANDA---->
+            <!---KM---->
+            <div class="km">
+                <span class="material-icons-sharp">speed</span>
+                <div class="middle">
+                    <div class="left">
+                        <h3>KM total</h3>
+                        <h1>54000</h1>
+                    </div>
+                    <div class="progress">
+                        <svg>
+                            <circle cx="38" cy="38" r="36"></circle>
+                        </svg>
+                        <div class="number">
+                            <p>87%</p>
+                        </div>
+                    </div>
+                </div>
+                <small class="text-muted">Demanda D-1</small>
+            </div>
+            <!---//KM---->
+            <!---RECEITA---->
+            <div class="receita">
+                <span class="material-icons-sharp">monetization_on</span>
+                <div class="middle">
+                    <div class="left">
+                        <h3>Receita Faturada</h3>
+                        <h1>R$ 1000000</h1>
+                    </div>
+                    <div class="progress">
+                        <svg>
+                            <circle cx="38" cy="38" r="36"></circle>
+                        </svg>
+                        <div class="number">
+                            <p>81%</p>
+                        </div>
+                    </div>
+                </div>
+                <small class="text-muted">Demanda D-1</small>
+            </div>
+            <!---//RECEITA---->
+        </div>
+    </main>
+</div>
 </body>
 </html>
